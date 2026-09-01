@@ -1,0 +1,10 @@
+{
+    "unstable": ["fmt-component"],
+    "fmt": {
+        "useTabs": false,
+        "lineWidth": 100,
+        "indentWidth": 4,
+        "semiColons": true,
+        "operatorPosition": "nextLine"
+    }
+}

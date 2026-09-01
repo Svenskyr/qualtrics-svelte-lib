@@ -9,3 +9,36 @@
 # https://docs.deno.com/runtime/reference/cli/coverage/
 coverage/
 *.lcov
+
+# Node
+node_modules
+.npmrc
+
+# Output
+.output
+/.svelte-kit
+/build
+/.deno-deploy
+
+# Git
+/.git
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env
+.env
+.env.*
+!.env.example
+!.env.test
+
+# Vite
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
+
+# Workspace
+.vscode
+.supabase
+.cursor
+reference/
