@@ -1,0 +1,53 @@
+/* --- Comprehension Question Choice Styling --- */
+/* Behavior:
+- When a correct choice is selected, it turns green and gets disabled.
+- When an incorrect choice is selected, it turns red and stays enabled. It must be unselected for the user to continue.
+- When a selected incorrect choice is unselected, it fades and gets disabled.
+- When all correct choices are selected, all unselected incorrect choices are disabled.
+*/
+
+.choice:is(.radio, .checkbox) .choice-label {
+	transition:
+		background-color 0.15s ease-in,
+		opacity 0.15s ease-in;
+}
+
+.choice:is(.radio, .checkbox):has(input[data-correctness='correct'][disabled]).selected .choice-label {
+	background-color: hsla(122, 87%, 57%, 1);
+}
+
+.choice:is(.radio, .checkbox):has(input[data-correctness='correct']):not(.selected) .choice-label {
+	background-color: hsla(122, 87%, 57%, 0.25);
+}
+.choice:is(.radio, .checkbox):has(input[data-correctness='correct']):not(.selected) .choice-label:hover {
+	background-color: hsla(122, 87%, 37%, 0.25);
+}
+
+.choice:is(.radio, .checkbox):has(input[data-correctness='incorrect']).selected .choice-label {
+	background-color: hsla(0, 79%, 72%, 1);
+}
+.choice:is(.radio, .checkbox):has(input[data-correctness='incorrect']).selected .choice-label:hover {
+	background-color: hsla(0, 56%, 56%, 1);
+}
+
+.choice:is(.radio, .checkbox):has(input[data-correctness='incorrect'][disabled]):not(.selected)
+	.choice-label {
+	background-color: hsla(0, 79%, 72%, 0.25);
+	opacity: 0.5;
+}
+
+.choice:is(.radio, .checkbox):has(input[disabled]):not(.selected) .choice-label {
+	opacity: 0.5;
+}
+
+.choice:is(.radio, .checkbox) input[disabled] {
+	opacity: 0;
+}
+
+.choice:is(.radio, .checkbox)[data-choice-disabled='disabled'] {
+	pointer-events: none !important;
+}
+
+.choice:is(.radio, .checkbox)[data-choice-disabled='disabled'] * {
+	pointer-events: none !important;
+}

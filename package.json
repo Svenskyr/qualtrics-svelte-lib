@@ -8,7 +8,9 @@
     "prepare": "svelte-kit sync || echo ''",
     "prepack": "svelte-kit sync && svelte-package && publint",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
-    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch"
+    "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
+    "build:qualtrics": "vite build --config vite.qualtrics.config.ts && node scripts/build-header-html.js",
+    "docs:qualtrics-api": "node scripts/html-to-qualtrics-api-md.js"
   },
   "files": [
     "dist",

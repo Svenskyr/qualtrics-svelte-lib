@@ -1,0 +1,139 @@
+/* Minimal Qualtrics-like survey chrome for /q mock harness */
+
+.q-mock-page {
+	--q-border: #c8c8c8;
+	--q-text: #1a1a1a;
+	--q-muted: #5a5a5a;
+	--q-surface: #f7f7f7;
+	--q-accent: #007a33;
+	--q-choice-hover: #eef5f0;
+	font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+	color: var(--q-text);
+	max-width: 40rem;
+	margin: 0 auto;
+	padding: 1.5rem 1rem 3rem;
+}
+
+.q-mock-page h1 {
+	font-size: 1.25rem;
+	font-weight: 600;
+	margin: 0 0 0.25rem;
+}
+
+.q-mock-page .q-mock-subtitle {
+	color: var(--q-muted);
+	font-size: 0.875rem;
+	margin: 0 0 1.5rem;
+}
+
+.q-mock-questions {
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
+}
+
+.QuestionOuter {
+	background: var(--q-surface);
+	border: 1px solid var(--q-border);
+	border-radius: 4px;
+	padding: 1rem 1.25rem;
+}
+
+.question-display-wrapper {
+	position: relative;
+}
+
+.question-text {
+	font-size: 1.05rem;
+	font-weight: 500;
+	margin-bottom: 0.75rem;
+	line-height: 1.4;
+}
+
+.QuestionBody {
+	display: flex;
+	flex-direction: column;
+	gap: 0.35rem;
+}
+
+.choice {
+	display: flex;
+	align-items: flex-start;
+	gap: 0.5rem;
+	padding: 0;
+	border-radius: 4px;
+}
+
+.choice:hover {
+	background: transparent;
+}
+
+.choice.selected {
+	background: transparent;
+}
+
+.choice input {
+	margin-top: 0.55rem;
+	margin-left: 0.5rem;
+}
+
+.choice-label {
+	cursor: pointer;
+	line-height: 1.4;
+	flex: 1;
+	padding: 0.45rem 0.65rem;
+	border-radius: 4px;
+}
+
+.choice:hover:not(:has(input[data-correctness]:not([data-correctness='hidden'])))
+	.choice-label {
+	background: var(--q-choice-hover);
+}
+
+.choice.selected:not(:has(input[data-correctness]:not([data-correctness='hidden'])))
+	.choice-label {
+	background: color-mix(in srgb, var(--q-accent) 12%, transparent);
+}
+
+.q-mock-nav {
+	display: flex;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-top: 1.5rem;
+	padding-top: 1rem;
+	border-top: 1px solid var(--q-border);
+}
+
+.q-mock-nav button {
+	font: inherit;
+	padding: 0.5rem 1.25rem;
+	border: 1px solid var(--q-border);
+	border-radius: 4px;
+	background: #fff;
+	cursor: pointer;
+}
+
+.q-mock-nav button:hover:not(:disabled) {
+	border-color: var(--q-accent);
+	color: var(--q-accent);
+}
+
+.q-mock-nav button:disabled {
+	opacity: 0.45;
+	cursor: not-allowed;
+}
+
+.q-mock-nav #NextButton {
+	background: var(--q-accent);
+	border-color: var(--q-accent);
+	color: #fff;
+}
+
+.q-mock-nav #NextButton:hover:not(:disabled) {
+	filter: brightness(1.05);
+	color: #fff;
+}
+
+.q-mock-nav #NextButton:disabled {
+	filter: none;
+}

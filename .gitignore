@@ -19,6 +19,7 @@ node_modules
 /.svelte-kit
 /build
 /.deno-deploy
+/dist-qualtrics
 
 # Git
 /.git
